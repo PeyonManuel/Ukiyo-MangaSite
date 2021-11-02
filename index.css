@@ -1,0 +1,438 @@
+@import url(//db.onlinewebfonts.com/c/240a7cb10b49b02c94ceddc459d385a9?family=Gagalin);
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+  --yellow: #fee120;
+  --black: #131b23;
+  --gray: #bfacb5;
+  font-family: "Gagalin";
+}
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  scroll-behavior: smooth;
+  min-height: calc(100vh - 12rem);
+  position: relative;
+  background-color: var(--black);
+  padding-bottom: 3rem;
+}
+main {
+  margin: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 110rem;
+}
+@media (max-width: 1150px) {
+  main {
+    margin: 1rem;
+  }
+}
+header {
+  height: 6rem;
+}
+footer {
+  padding: 1rem 3rem;
+  position: absolute;
+  bottom: -12rem;
+  height: 12rem;
+  background-color: var(--yellow);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+fieldset {
+  background-color: var(--yellow);
+  border: none;
+}
+*::-webkit-scrollbar-track {
+  background-color: #15222e;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 0.8rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--yellow);
+}
+
+h2 {
+  color: var(--yellow);
+  width: auto;
+  padding: 1rem;
+}
+nav {
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+  padding: 0 3rem 0 3rem;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: inline;
+}
+nav ul li {
+  padding-right: 1rem;
+  float: left;
+}
+nav ul li a {
+  text-decoration: none;
+}
+nav a {
+  height: 100%;
+  color: black;
+  transition: 1s;
+}
+nav a:hover {
+  transform: rotate(-180deg);
+}
+nav a:hover img {
+  margin: 1rem 0 1rem 3rem;
+}
+nav a img {
+  display: inline;
+  margin-right: 1rem;
+  width: 8rem;
+  margin: 1rem 3rem 1rem 0;
+  transition: 1s;
+}
+nav a img:hover {
+  margin: 1rem 0 1rem 3rem;
+  transform: rotate(180deg);
+}
+nav .searchbar {
+  margin-left: auto;
+  width: 100%;
+  max-width: 50rem;
+  position: relative;
+}
+nav .searchbar img {
+  height: 50%;
+  width: auto;
+  right: 1rem;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: absolute;
+}
+nav .searchbar input {
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  height: 4rem;
+}
+nav span {
+  font-size: 1.5rem;
+}
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  border: 1px solid black;
+}
+.manga-img {
+  width: 14rem;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+}
+form .form-buttons {
+  margin-top: 1rem;
+}
+.pop-week {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-areas: "pop1 popothers";
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+  height: 35rem;
+}
+.manga-card {
+  border-radius: 1rem;
+  -webkit-box-shadow: 1px 1px 15px -6px rgba(0, 0, 0, 0.76);
+  box-shadow: 1px 1px 15px -6px rgba(0, 0, 0, 0.76);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  height: 27rem;
+  width: 17rem;
+  user-select: none;
+}
+.pop-week-1 {
+  grid-area: pop1;
+}
+.pop-week-2-5 {
+  grid-area: popothers;
+}
+.manga-card.pop-week-1,
+.pop-week-2-5 {
+  height: 35rem;
+  width: 100%;
+}
+.manga-card .img-div {
+  transition: 0.1s ease-out;
+  height: 100%;
+}
+.manga-card:hover .img-div {
+  transform: scale(1.02);
+}
+.manga-card.pop-week-1:hover .img-div {
+  transform: scale(1.02);
+}
+.manga-card .manga-info {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 0.6306897759103641) 100%
+  );
+  min-height: 15%;
+  width: 100%;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.manga-card.pop-week-1 .manga-info,
+.manga-card.pop-week-others .manga-info {
+  justify-content: center;
+}
+.manga-info h3,
+span {
+  color: white;
+  display: inline;
+  user-select: none;
+  margin: 0;
+}
+.manga-card.pop-week-others .manga-info h3 {
+  user-select: none;
+  font-size: 1.4rem;
+}
+.pop-week-2-5 {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.manga-card.pop-week-others {
+  width: 100%;
+  height: 23%;
+}
+.manga-card.pop-week-others .manga-info {
+  height: 30%;
+}
+@media (max-width: 670px) {
+  .pop-week {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+    grid-template-areas:
+      "pop1"
+      "popothers";
+  }
+  .pop-week-2-5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  .manga-card.pop-week-1,
+  .pop-week-2-5 {
+    height: 100%;
+  }
+  .manga-card.pop-week-others {
+    height: 100%;
+  }
+  .manga-card.pop-week-1 {
+    width: 100%;
+  }
+}
+.scroll-container {
+  width: 100%;
+  overflow-x: scroll;
+}
+.top-rated-div,
+.forums-div {
+  width: 184rem;
+  display: flex;
+  justify-content: space-between;
+}
+.top-rated-div {
+  height: 28rem;
+}
+.forums-div {
+  height: 18rem;
+}
+.forum-thread {
+  background-color: #edf1f5;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  width: 36rem;
+  height: 17rem;
+  text-decoration: none;
+  color: black;
+  user-select: none;
+}
+.forum-thread h3 {
+  margin: 1rem 0;
+}
+.forum-thread p,
+.search-result p {
+  color: var(--black);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 1rem 0;
+}
+.forum-thread span {
+  display: flex;
+  align-content: center;
+  color: black;
+  margin-right: 0.5rem;
+}
+.forum-thread img {
+  height: 2rem;
+  margin: 0 0.5rem;
+}
+.forum-category {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+  color: black;
+  width: fit-content;
+}
+.forum-category.blue {
+  background-color: rgb(99, 99, 211);
+}
+.forum-category.green {
+  background-color: #8bc34a;
+}
+.forum-category.red {
+  background-color: rgb(236, 41, 41);
+}
+.forum-category.violet {
+  background-color: rgb(211, 69, 211);
+}
+.theme {
+  width: 12rem;
+}
+.theme h4 {
+  margin: 1rem 0;
+}
+.theme button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+.theme img {
+  height: 4rem;
+  margin-right: 1rem;
+}
+footer ul {
+  margin-left: auto;
+  list-style: none;
+}
+footer ul li {
+  margin-bottom: 1rem;
+}
+footer ul li:last-child {
+  margin: 0;
+}
+footer ul li a {
+  color: black;
+  text-decoration: none;
+}
+footer ul li a img {
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+.search-result {
+  background-color: #edf1f5;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  height: 12.5rem;
+  text-decoration: none;
+  color: black;
+  user-select: none;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.search-result img {
+  height: 100%;
+  margin-right: 1rem;
+}
+.search-result h3 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+.search-result h4 {
+  font-weight: 10;
+  display: inline;
+  margin: 0;
+}
+.date-genres {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.date-genres div {
+  border-radius: 10rem;
+  padding: 0.6rem;
+  margin-left: 1rem;
+}
+.date-genres .mistery {
+  background-color: violet;
+}
+.date-genres .drama {
+  background-color: black;
+  color: white;
+}
+.date-genres .adventure {
+  background-color: var(--yellow);
+}
+.date-genres .action {
+  background-color: #f75c03;
+}
+.date-genres .comedy {
+  background-color: #f13030;
+}
+.date-genres .thriller {
+  background-color: #0a2239;
+  color: white;
+}
+/* common */
+.img-div {
+  display: flex;
+  justify-content: center;
+}
+.img-div img {
+  max-height: 100%;
+}
+.flex {
+  display: flex;
+}
+.flex.column {
+  flex-direction: column;
+}
