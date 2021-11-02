@@ -1,4 +1,8 @@
-@import url(//db.onlinewebfonts.com/c/240a7cb10b49b02c94ceddc459d385a9?family=Gagalin);
+@import url("");
+@font-face {
+  font-family: "Gagalin";
+  src: url("./fonts/gagalin-regular-webfont.woff") format("woff");
+}
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
