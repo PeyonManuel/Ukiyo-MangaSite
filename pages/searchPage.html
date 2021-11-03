@@ -17,26 +17,43 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 		<header>
-			<nav>
-				<a href="../index.html">
-					<img src="../images/ukiyoLogo.png" alt=""
-				/></a>
-				<ul class="nav">
-					<li class="nav-item">
-						<a href="./searchPage.html" class="nav-link">Busqueda</a>
-					</li>
-					<li class="nav-item">
-						<a href="./mangaPage.html" class="nav-link">Manga</a>
-					</li>
-					<li class="nav-item">
-						<a href="./contact.html" class="nav-link">Contacto</a>
-					</li>
-					<li class="nav-item">
-						<a href="./forum.html" class="nav-link">Foro</a>
-					</li>
-				</ul>
-				<div class="searchbar">
-					<input type="text" /><img src="../images/loupe.png" alt="" />
+			<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<a href="../index.html"
+							><img src="../images/ukiyoLogo.png" alt=""
+						/></a>
+						<button
+							type="button"
+							class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1"
+						>
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div
+						class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1"
+					>
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="../pages/searchPage.html" class="nav-link">Busqueda</a>
+							</li>
+							<li>
+								<a href="../pages/mangaPage.html" class="nav-link">Manga</a>
+							</li>
+							<li>
+								<a href="../pages/contact.html" class="nav-link">Contacto</a>
+							</li>
+							<li>
+								<a href="../pages/forum.html" class="nav-link">Foro</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</nav>
 		</header>
