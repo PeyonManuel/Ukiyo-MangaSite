@@ -176,7 +176,7 @@ form .form-buttons {
 	width: 100%;
 	grid-template-areas: 'pop1 popothers';
 	grid-gap: 1rem;
-	height: 45rem;
+	height: 40rem;
 }
 @media (max-width: 1100px) {
 	.pop-week {
