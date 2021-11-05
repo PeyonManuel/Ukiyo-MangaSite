@@ -1,12 +1,8 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-@import url('');
+@import 'global';
+@import 'mangaPage';
 @font-face {
 	font-family: 'Gagalin';
-	src: url('./fonts/gagalin-regular-webfont.woff') format('woff');
+	src: url('../fonts/gagalin-regular-webfont.woff') format('woff');
 }
 html {
 	font-size: 62.5%;
@@ -16,7 +12,7 @@ html {
 	box-sizing: border-box;
 	--yellow: #fee120;
 	--black: #131b23;
-	--gray: #bfacb5;
+	--gray: #edf1f5;
 	font-family: 'Gagalin';
 }
 body {
@@ -36,7 +32,7 @@ main {
 	align-items: center;
 }
 section {
-	max-width: 110rem;
+	max-width: 120rem;
 	width: 100%;
 }
 @media (max-width: 1150px) {
@@ -81,9 +77,6 @@ h2 {
 	color: var(--yellow);
 	width: auto;
 	padding: 1rem;
-}
-nav {
-	background-color: var(--yellow) !important;
 }
 nav ul {
 	list-style-type: none;
@@ -159,11 +152,6 @@ table th {
 }
 form .form-buttons {
 	margin-top: 1rem;
-}
-.popular {
-	align-self: flex-start;
-	width: 100%;
-	max-width: initial;
 }
 .pop-week {
 	width: 100%;
@@ -283,7 +271,7 @@ span {
 	height: 19rem;
 }
 .forum-thread {
-	background-color: #edf1f5;
+	background-color: var(--gray);
 	padding: 1rem;
 	border-radius: 0.4rem;
 	width: 36rem;
@@ -322,17 +310,21 @@ span {
 	color: black;
 	width: fit-content;
 }
-.forum-category.blue {
-	background-color: rgb(99, 99, 211);
-}
-.forum-category.green {
-	background-color: #8bc34a;
-}
-.forum-category.red {
-	background-color: rgb(236, 41, 41);
-}
-.forum-category.violet {
-	background-color: rgb(211, 69, 211);
+@each $color in blue, green, red, violet {
+	.forum-category.#{$color} {
+		@if $color == blue {
+			background-color: rgb(99, 99, 211);
+		}
+		@if $color == green {
+			background-color: #8bc34a;
+		}
+		@if $color == red {
+			background-color: rgb(236, 41, 41);
+		}
+		@if $color == violet {
+			background-color: rgb(211, 69, 211);
+		}
+	}
 }
 .theme {
 	width: 12rem;
@@ -369,7 +361,7 @@ footer ul li a img {
 	margin-right: 0.5rem;
 }
 .search-result {
-	background-color: #edf1f5;
+	background-color: var(--gray);
 	padding: 1rem;
 	border-radius: 0.4rem;
 	height: 14rem;
@@ -402,25 +394,29 @@ footer ul li a img {
 	padding: 0.6rem;
 	margin-left: 1rem;
 }
-.date-genres .mistery {
-	background-color: violet;
-}
-.date-genres .drama {
-	background-color: black;
-	color: white;
-}
-.date-genres .adventure {
-	background-color: var(--yellow);
-}
-.date-genres .action {
-	background-color: #f75c03;
-}
-.date-genres .comedy {
-	background-color: #f13030;
-}
-.date-genres .thriller {
-	background-color: #0a2239;
-	color: white;
+@each $genre in mistery, drama, adventure, action, comedy, thriller {
+	.date-genres .#{$genre} {
+		@if $genre == mistery {
+			background-color: violet;
+		}
+		@if $genre == drama {
+			background-color: black;
+			color: white;
+		}
+		@if $genre == adventure {
+			background-color: var(--yellow);
+		}
+		@if $genre == action {
+			background-color: #f75c03;
+		}
+		@if $genre == comedy {
+			background-color: #f13030;
+		}
+		@if $genre == thriller {
+			background-color: #0a2239;
+			color: white;
+		}
+	}
 }
 /* negating bootsrap */
 a:hover {
@@ -447,19 +443,24 @@ nav .container {
 	padding: 0 3rem 0 3rem;
 	display: flex;
 	align-items: center;
-	padding: 0 3rem 0 3rem;
+	padding: 0rem 3rem 0 3rem;
 }
 .navbar-collapse {
-	background-color: var(--yellow);
 	display: flex;
 	align-content: center;
 }
 .navbar-nav li a {
 	color: black !important;
 }
+.navbar {
+	background-color: var(--yellow);
+	margin-bottom: 0;
+	border-bottom: none;
+}
 @media (max-width: 767px) {
 	nav .container {
 		display: block;
+		padding: 1rem 3rem 0 3rem;
 	}
 }
 /* common */

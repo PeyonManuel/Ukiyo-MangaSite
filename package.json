@@ -262,7 +262,7 @@
 		"yargs-parser": "^20.2.9"
 	},
 	"scripts": {
-		"compile": "sass --watch scss:css"
+		"compile-sass": "sass --watch scss:css"
 	},
 	"repository": {
 		"type": "git",
