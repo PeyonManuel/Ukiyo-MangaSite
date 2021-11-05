@@ -463,6 +463,11 @@ nav .container {
 		padding: 1rem 3rem 0 3rem;
 	}
 }
+@media (max-width: 1150px) {
+	main {
+		margin: 0;
+	}
+}
 /* common */
 .img-div {
 	display: flex;

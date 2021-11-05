@@ -55,7 +55,6 @@ header.manga-page {
   background-repeat: no-repeat;
   background-size: cover;
   height: 40rem;
-  margin-top: -5.8rem;
   background-image: url("../images/One-Piece-Poster.png");
 }
 
@@ -745,6 +744,12 @@ nav .container {
   nav .container {
     display: block;
     padding: 1rem 3rem 0 3rem;
+  }
+}
+
+@media (max-width: 1150px) {
+  main {
+    margin: 0;
   }
 }
 
