@@ -88,7 +88,7 @@ header.manga-page {
   width: calc(100% - 22rem);
 }
 
-.manga-page-info__text h2,
+.manga-page-info__text h1,
 .manga-page-info__text p {
   margin: 0;
   padding: 0;
@@ -150,6 +150,74 @@ header.manga-page {
   .manga-page-info__img {
     margin-top: -30rem;
   }
+}
+
+.forum-info {
+  background-color: var(--gray);
+  margin: 1rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+.forum-info h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: black;
+}
+
+.forum-info button {
+  float: right;
+  background-color: var(--yellow);
+  color: black;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.8rem;
+}
+
+.forum-answers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.forum-answers li {
+  background-color: var(--gray);
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.forum-answers li a {
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.forum-answers li a span {
+  color: #337ab7;
+  margin-right: 1rem;
+}
+
+.forum-answers li a p {
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--black);
+}
+
+.forum-answers li .img-div {
+  height: 4rem;
+  margin-right: 1rem;
 }
 
 @font-face {
@@ -249,6 +317,7 @@ fieldset {
   background-color: var(--yellow);
 }
 
+h1,
 h2 {
   color: var(--yellow);
   width: auto;
