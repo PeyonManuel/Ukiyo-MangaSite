@@ -48,3 +48,8 @@
 		}
 	}
 }
+@media (max-width: 1200px) {
+	.forum-info {
+		width: calc(100% - 2rem);
+	}
+}

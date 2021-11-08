@@ -142,13 +142,34 @@ header.manga-page {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding-bottom: 0;
   }
   .manga-page-info__text {
     margin-left: 0;
     width: auto;
+    margin-bottom: 0;
   }
   .manga-page-info__img {
     margin-top: -30rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .info-chapters {
+    max-height: 100rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .info-chapters__extra-info {
+    width: 100%;
+  }
+  .info-chapters__chapters {
+    width: 100%;
+    height: 30rem;
+    margin: 0;
+    margin-top: 1rem;
   }
 }
 
@@ -220,6 +241,12 @@ header.manga-page {
   margin-right: 1rem;
 }
 
+@media (max-width: 1200px) {
+  .forum-info {
+    width: calc(100% - 2rem);
+  }
+}
+
 @font-face {
   font-family: 'Gagalin';
   src: url("../fonts/gagalin-regular-webfont.woff") format("woff");
@@ -273,10 +300,6 @@ section {
   main {
     margin: 1rem;
   }
-}
-
-header {
-  height: 6rem;
 }
 
 footer {
@@ -677,6 +700,12 @@ span {
   margin-right: 1rem;
 }
 
+@media (max-width: 400px) {
+  .theme {
+    display: none;
+  }
+}
+
 footer ul {
   margin-left: auto;
   list-style: none;
@@ -705,6 +734,7 @@ footer ul li a img {
   padding: 1rem;
   border-radius: 0.4rem;
   height: 14rem;
+  max-width: 100%;
   text-decoration: none;
   color: black;
   -webkit-user-select: none;
@@ -743,7 +773,52 @@ footer ul li a img {
   margin-bottom: 1rem;
 }
 
-.date-genres div {
+@media (max-width: 500px) {
+  .search-result {
+    height: 20rem;
+    max-width: 100%;
+    margin: 0 1rem 1rem;
+  }
+  .search-result p {
+    -webkit-line-clamp: 4;
+  }
+  .search-result .date-genres {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .search-result .date-genres h4 {
+    margin-bottom: 1rem;
+  }
+  .search-result .date-genres .genres div {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .search-result p {
+    -webkit-line-clamp: 7;
+  }
+  .date-genres {
+    display: none;
+  }
+}
+
+.genres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.genres div {
   border-radius: 10rem;
   padding: 0.6rem;
   margin-left: 1rem;

@@ -41,9 +41,6 @@ section {
 		margin: 1rem;
 	}
 }
-header {
-	height: 6rem;
-}
 footer {
 	padding: 1rem 3rem;
 	position: absolute;
@@ -344,6 +341,11 @@ span {
 	height: 4rem;
 	margin-right: 1rem;
 }
+@media (max-width: 400px) {
+	.theme {
+		display: none;
+	}
+}
 footer ul {
 	margin-left: auto;
 	list-style: none;
@@ -367,6 +369,7 @@ footer ul li a img {
 	padding: 1rem;
 	border-radius: 0.4rem;
 	height: 14rem;
+	max-width: 100%;
 	text-decoration: none;
 	color: black;
 	user-select: none;
@@ -391,7 +394,45 @@ footer ul li a img {
 	align-items: center;
 	margin-bottom: 1rem;
 }
-.date-genres div {
+@media (max-width: 500px) {
+	.search-result {
+		height: 20rem;
+		max-width: 100%;
+		margin: 0 1rem 1rem;
+		p {
+			-webkit-line-clamp: 4;
+		}
+		.date-genres {
+			flex-direction: column;
+			align-items: flex-start;
+			h4 {
+				margin-bottom: 1rem;
+			}
+			.genres {
+				div {
+					font-size: 1.2rem;
+					margin: 0;
+					margin-right: 0.5rem;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 350px) {
+	.search-result {
+		p {
+			-webkit-line-clamp: 7;
+		}
+	}
+	.date-genres {
+		display: none;
+	}
+}
+.genres {
+	display: flex;
+	flex-wrap: wrap;
+}
+.genres div {
 	border-radius: 10rem;
 	padding: 0.6rem;
 	margin-left: 1rem;
