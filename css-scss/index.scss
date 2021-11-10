@@ -36,6 +36,14 @@ section {
 	max-width: 120rem;
 	width: 100%;
 }
+@media (max-width: 1200px) {
+	section {
+		padding: 0 1rem;
+	}
+	.popular {
+		padding: 0;
+	}
+}
 @media (max-width: 1150px) {
 	main {
 		margin: 1rem;
@@ -82,7 +90,17 @@ nav ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	display: inline;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+@media (max-width: 420px) {
+	nav {
+		ul {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
 }
 nav ul li {
 	padding-right: 1rem;

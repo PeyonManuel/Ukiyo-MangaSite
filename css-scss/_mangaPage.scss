@@ -123,6 +123,14 @@ header.manga-page {
 	}
 }
 @media (max-width: 1150px) {
+	@keyframes imgStart {
+		0% {
+			margin-top: -10rem;
+		}
+		100% {
+			margin-top: -30rem;
+		}
+	}
 	.manga-page-info,
 	.info-chapters {
 		padding: 1rem;
