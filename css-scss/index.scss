@@ -40,7 +40,8 @@ section {
 	section {
 		padding: 0 1rem;
 	}
-	.popular {
+	.popular,
+	.poster {
 		padding: 0;
 	}
 }
@@ -359,14 +360,20 @@ span {
 	height: 4rem;
 	margin-right: 1rem;
 }
+footer ul {
+	margin-left: auto;
+	list-style: none;
+}
 @media (max-width: 400px) {
 	.theme {
 		display: none;
 	}
-}
-footer ul {
-	margin-left: auto;
-	list-style: none;
+	footer {
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+	}
 }
 footer ul li {
 	margin-bottom: 1rem;
@@ -440,7 +447,7 @@ footer ul li a img {
 		}
 	}
 }
-@media (max-width: 350px) {
+@media (max-width: 400px) {
 	.search-result {
 		p {
 			-webkit-line-clamp: 7;

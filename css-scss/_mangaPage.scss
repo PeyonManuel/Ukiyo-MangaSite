@@ -133,11 +133,10 @@ header.manga-page {
 	}
 	.manga-page-info,
 	.info-chapters {
-		padding: 1rem;
+		padding-bottom: 1rem;
 	}
 	.manga-page-info {
 		flex-direction: column;
-		padding-bottom: 0;
 		&__text {
 			margin-left: 0;
 			width: auto;
