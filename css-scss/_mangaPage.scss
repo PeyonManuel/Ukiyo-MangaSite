@@ -23,25 +23,55 @@ header.manga-page {
 		background-color: var(--yellow);
 	}
 }
+@keyframes posterStart {
+	0% {
+		filter: opacity(0.5);
+		filter: brightness(0.9);
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1);
+		filter: brightness(1);
+	}
+}
 .poster {
 	box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
 	-webkit-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.2);
+	height: 40rem;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
 	.img-div {
+		height: 100%;
+		width: 100%;
 		background-position: 50% 35%;
 		background-repeat: no-repeat;
 		background-size: cover;
-		height: 40rem;
 		background-image: url('../images/One-Piece-Poster.png');
-		img {
-			min-height: 100%;
-			min-width: 100%;
-		}
+		animation: posterStart 0.3s;
+	}
+}
+@keyframes imgStart {
+	0% {
+		margin-top: -10rem;
+	}
+	100% {
+		margin-top: -15rem;
+	}
+}
+@keyframes textStart {
+	0% {
+		margin-top: -5rem;
+	}
+	100% {
+		margin-top: 2rem;
 	}
 }
 .manga-page-info {
 	display: flex;
 	&__img {
+		animation: imgStart 0.3s;
 		margin-top: -15rem;
 		width: 22rem;
 		height: 36rem;
@@ -49,10 +79,12 @@ header.manga-page {
 			box-shadow: 0px -1px 40px 10px rgba(136, 95, 95, 0.5);
 			-webkit-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
 			-moz-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
+			z-index: 2;
 		}
 		border-radius: 0.5rem;
 	}
 	&__text {
+		animation: textStart 0.3s;
 		margin: 2rem;
 		margin-right: 0;
 		width: calc(100% - 22rem);

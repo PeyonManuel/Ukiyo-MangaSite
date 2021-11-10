@@ -375,6 +375,10 @@ footer ul li a img {
 	user-select: none;
 	display: flex;
 	margin-bottom: 1rem;
+	transition: 0.3s;
+}
+.search-result:hover {
+	transform: scale(1.01);
 }
 .search-result img {
 	height: 100%;
