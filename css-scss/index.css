@@ -6,7 +6,7 @@
   max-width: initial;
 }
 
-.absolute-sign, .add-to-list-sign-container, .plans {
+.absolute-sign, .add-to-list-sign-container, .plans, .loading-screen {
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -563,6 +563,40 @@ header.manga-page {
   padding: 0.5rem 1rem;
   font-size: 2.5rem;
   width: 100%;
+}
+
+@-webkit-keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading-screen {
+  background-color: var(--yellow);
+}
+
+.loading-screen img {
+  height: 10rem;
+  -webkit-animation: loadingAnimation 2s;
+          animation: loadingAnimation 2s;
 }
 
 @font-face {

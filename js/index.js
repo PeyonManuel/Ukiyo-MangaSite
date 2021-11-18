@@ -1,9 +1,12 @@
 import { forums } from './data.js';
 const carousel = document.querySelector('.pop-week');
 
+document.body.style.overflow = 'hidden';
+
+let loadedApis = 0;
+
 fetch('https://graphql.anilist.co/', {
 	method: 'POST',
-
 	headers: {
 		'Content-Type': 'application/json',
 	},
@@ -60,13 +63,18 @@ fetch('https://graphql.anilist.co/', {
 				carousel.append(mangaAnchor);
 			}
 		});
+		loadedApis++;
+
+		if (loadedApis === 2) {
+			document.body.style.overflowY = 'scroll';
+			document.querySelector('.loading-screen').remove();
+		}
 	});
 
 const topRatedDiv = document.querySelector('.top-rated-div');
 
 fetch('https://graphql.anilist.co/', {
 	method: 'POST',
-
 	headers: {
 		'Content-Type': 'application/json',
 	},
@@ -90,7 +98,6 @@ fetch('https://graphql.anilist.co/', {
 })
 	.then((res) => res.json())
 	.then((res) => {
-		console.log(res.data.Page.media);
 		res.data.Page.media.forEach((manga) => {
 			const mangaAnchor = document.createElement('a');
 			mangaAnchor.href = '#';
@@ -121,6 +128,12 @@ fetch('https://graphql.anilist.co/', {
 		</div>`;
 			topRatedDiv.append(mangaAnchor);
 		});
+		loadedApis++;
+
+		if (loadedApis === 2) {
+			document.body.style.overflowY = 'scroll';
+			document.querySelector('.loading-screen').remove();
+		}
 	});
 
 const forumsDiv = document.querySelector('.forums-div');
