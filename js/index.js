@@ -4,6 +4,7 @@ const carousel = document.querySelector('.pop-week');
 document.body.style.overflow = 'hidden';
 
 let loadedApis = 0;
+const numberOfCalls = 2;
 
 fetch('https://graphql.anilist.co/', {
 	method: 'POST',
@@ -14,6 +15,7 @@ fetch('https://graphql.anilist.co/', {
 		query: `{
 			Page (page: 1, perPage: 15) {
 			media (sort: TRENDING_DESC, type: MANGA, format: MANGA) {
+				id
 			  title {
 				english
 				romaji
@@ -30,7 +32,7 @@ fetch('https://graphql.anilist.co/', {
 		res.data.Page.media.forEach((manga, i) => {
 			if (manga.bannerImage) {
 				const mangaAnchor = document.createElement('a');
-				mangaAnchor.href = '#';
+				mangaAnchor.href = `./pages/mangaPage.html?id=${manga.id}`;
 				let title = '';
 
 				if (manga.title.english !== null) {
@@ -39,9 +41,6 @@ fetch('https://graphql.anilist.co/', {
 					title = manga.title.romaji;
 				} else if (manga.title.native) {
 					title = manga.title.native;
-				}
-				if (manga.title.english === 'One Piece') {
-					mangaAnchor.href = './pages/mangaPage.html';
 				}
 
 				mangaAnchor.classList.add('item');
@@ -65,7 +64,16 @@ fetch('https://graphql.anilist.co/', {
 		});
 		loadedApis++;
 
-		if (loadedApis === 2) {
+		if (loadedApis === numberOfCalls) {
+			document.body.style.overflowY = 'scroll';
+			document.querySelector('.loading-screen').remove();
+		}
+	})
+	.catch((error) => {
+		console.log(error);
+		loadedApis++;
+
+		if (loadedApis === numberOfCalls) {
 			document.body.style.overflowY = 'scroll';
 			document.querySelector('.loading-screen').remove();
 		}
@@ -82,6 +90,7 @@ fetch('https://graphql.anilist.co/', {
 		query: `{
 			Page (page: 1, perPage: 10) {
 			media (averageScore_greater: 86, type: MANGA, format: MANGA, sort: SCORE_DESC) {
+				id
 			  title {
 				english
 				romaji
@@ -100,7 +109,8 @@ fetch('https://graphql.anilist.co/', {
 	.then((res) => {
 		res.data.Page.media.forEach((manga) => {
 			const mangaAnchor = document.createElement('a');
-			mangaAnchor.href = '#';
+			mangaAnchor.href = `./pages/mangaPage.html?id=${manga.id}`;
+
 			let title = '';
 
 			if (manga.title.english !== null) {
@@ -109,10 +119,6 @@ fetch('https://graphql.anilist.co/', {
 				title = manga.title.romaji;
 			} else if (manga.title.native) {
 				title = manga.title.native;
-			}
-
-			if (manga.title.english === 'One Piece') {
-				mangaAnchor.href = './pages/mangaPage.html';
 			}
 
 			mangaAnchor.classList.add('manga-card');
@@ -130,7 +136,16 @@ fetch('https://graphql.anilist.co/', {
 		});
 		loadedApis++;
 
-		if (loadedApis === 2) {
+		if (loadedApis === numberOfCalls) {
+			document.body.style.overflowY = 'scroll';
+			document.querySelector('.loading-screen').remove();
+		}
+	})
+	.catch((error) => {
+		console.log(error);
+		loadedApis++;
+
+		if (loadedApis === numberOfCalls) {
 			document.body.style.overflowY = 'scroll';
 			document.querySelector('.loading-screen').remove();
 		}

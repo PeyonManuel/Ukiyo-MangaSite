@@ -6,7 +6,7 @@
   max-width: initial;
 }
 
-.absolute-sign, .add-to-list-sign-container, .plans, .loading-screen {
+.absolute-sign, .loading-screen, .add-to-list-sign-container, .plans {
   height: 100vh;
   width: 100%;
   position: fixed;
@@ -27,20 +27,30 @@
           align-items: center;
 }
 
+.loading-screen {
+  background-color: var(--yellow);
+}
+
+.loading-screen img {
+  height: 10rem;
+  -webkit-animation: loadingAnimation 2s infinite;
+          animation: loadingAnimation 2s infinite;
+}
+
 .manga-page-info__text {
-  background-color: rgba(160, 160, 160, 0.172);
+  background-color: #e0e4e7;
   border-radius: 0.5rem;
   padding: 2rem;
 }
 
 .info-chapters__extra-info {
-  background-color: rgba(160, 160, 160, 0.172);
+  background-color: #e0e4e7;
   border-radius: 0.5rem;
   padding: 2rem;
 }
 
 .info-chapters__chapters {
-  background-color: rgba(160, 160, 160, 0.172);
+  background-color: #e0e4e7;
   border-radius: 0.5rem;
   padding: 2rem;
 }
@@ -119,7 +129,6 @@ header.manga-page {
   background-position: 50% 35%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../images/One-Piece-Poster.png");
   -webkit-animation: posterStart 0.3s;
           animation: posterStart 0.3s;
 }
@@ -139,6 +148,24 @@ header.manga-page {
   }
   100% {
     margin-top: -15rem;
+  }
+}
+
+@-webkit-keyframes imgStartReverse {
+  0% {
+    margin-top: -5rem;
+  }
+  100% {
+    margin-top: 2rem;
+  }
+}
+
+@keyframes imgStartReverse {
+  0% {
+    margin-top: -5rem;
+  }
+  100% {
+    margin-top: 2rem;
   }
 }
 
@@ -183,11 +210,16 @@ header.manga-page {
 }
 
 .manga-page-info__text {
+  position: relative;
   -webkit-animation: textStart 0.3s;
           animation: textStart 0.3s;
   margin: 2rem;
   margin-right: 0;
   width: calc(100% - 22rem);
+  max-height: 23.1rem;
+  overflow: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .manga-page-info__text h1,
@@ -198,7 +230,7 @@ header.manga-page {
 }
 
 .manga-page-info__text p {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 
 .info-chapters {
@@ -295,7 +327,7 @@ header.manga-page {
 }
 
 .add-to-list-btn {
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   height: 3rem;
   width: 100%;
   border: none;
@@ -339,6 +371,10 @@ header.manga-page {
 .add-to-list-sign-container .add-to-list-sign__header h3 {
   color: black;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 24rem;
 }
 
 .add-to-list-sign-container .add-to-list-sign__inputs {
@@ -376,6 +412,21 @@ header.manga-page {
   color: var(--yellow);
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+}
+
+.description-read-more-btn {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 100%;
+  margin-right: -50%;
+  border: none;
+  height: 3rem;
+  padding-bottom: 3.2rem;
+  background: #e0e4e7;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #e0e4e7), to(rgba(224, 228, 231, 0.9)));
+  background: linear-gradient(0deg, #e0e4e7 50%, rgba(224, 228, 231, 0.9) 100%);
+  color: black;
 }
 
 .forum-info {
@@ -589,16 +640,6 @@ header.manga-page {
   }
 }
 
-.loading-screen {
-  background-color: var(--yellow);
-}
-
-.loading-screen img {
-  height: 10rem;
-  -webkit-animation: loadingAnimation 2s;
-          animation: loadingAnimation 2s;
-}
-
 @font-face {
   font-family: 'Gagalin';
   src: url("../fonts/gagalin-regular-webfont.woff") format("woff");
@@ -750,11 +791,6 @@ nav a {
   color: black;
   -webkit-transition: 1s;
   transition: 1s;
-}
-
-nav a img:hover {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
 }
 
 nav a img {

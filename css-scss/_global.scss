@@ -17,3 +17,11 @@
 	justify-content: center;
 	align-items: center;
 }
+.loading-screen {
+	@extend .absolute-sign;
+	background-color: var(--yellow);
+	img {
+		height: 10rem;
+		animation: loadingAnimation 2s infinite;
+	}
+}

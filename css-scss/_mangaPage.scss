@@ -1,4 +1,4 @@
-$grayer: rgba(160, 160, 160, 0.172);
+$grayer: #e0e4e7;
 @each $section in manga-page-info__text, info-chapters__extra-info,
 	info-chapters__chapters
 {
@@ -48,7 +48,6 @@ header.manga-page {
 		background-position: 50% 35%;
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-image: url('../images/One-Piece-Poster.png');
 		animation: posterStart 0.3s;
 	}
 }
@@ -58,6 +57,14 @@ header.manga-page {
 	}
 	100% {
 		margin-top: -15rem;
+	}
+}
+@keyframes imgStartReverse {
+	0% {
+		margin-top: -5rem;
+	}
+	100% {
+		margin-top: 2rem;
 	}
 }
 @keyframes textStart {
@@ -84,10 +91,14 @@ header.manga-page {
 		border-radius: 0.5rem;
 	}
 	&__text {
+		position: relative;
 		animation: textStart 0.3s;
 		margin: 2rem;
 		margin-right: 0;
 		width: calc(100% - 22rem);
+		max-height: 23.1rem;
+		overflow: hidden;
+		transition: 1s;
 		h1,
 		p {
 			margin: 0;
@@ -95,7 +106,7 @@ header.manga-page {
 			color: black;
 		}
 		p {
-			font-size: 1.8rem;
+			font-size: 1.6rem;
 		}
 	}
 }
@@ -166,7 +177,7 @@ header.manga-page {
 	}
 }
 .add-to-list-btn {
-	margin: 1rem 0;
+	margin: 1rem 0 2rem;
 	height: 3rem;
 	width: 100%;
 	border: none;
@@ -201,6 +212,10 @@ header.manga-page {
 			h3 {
 				color: black;
 				margin: 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				max-width: 24rem;
 			}
 		}
 		position: relative;
@@ -234,4 +249,22 @@ header.manga-page {
 			}
 		}
 	}
+}
+
+.description-read-more-btn {
+	position: absolute;
+	bottom: 0;
+	right: 50%;
+	width: 100%;
+	margin-right: -50%;
+	border: none;
+	height: 3rem;
+	padding-bottom: 3.2rem;
+	background: rgb(224, 228, 231);
+	background: linear-gradient(
+		0deg,
+		rgba(224, 228, 231, 1) 50%,
+		rgba(224, 228, 231, 0.9) 100%
+	);
+	color: black;
 }

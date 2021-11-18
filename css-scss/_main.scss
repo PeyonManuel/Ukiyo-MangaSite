@@ -95,12 +95,3 @@
 		opacity: 1;
 	}
 }
-
-.loading-screen {
-	@extend .absolute-sign;
-	background-color: var(--yellow);
-	img {
-		height: 10rem;
-		animation: loadingAnimation 2s;
-	}
-}
