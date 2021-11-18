@@ -1,6 +1,7 @@
 @import 'global';
 @import 'mangaPage';
 @import 'forumPage';
+@import 'main';
 @font-face {
 	font-family: 'Gagalin';
 	src: url('../fonts/gagalin-regular-webfont.woff') format('woff');
@@ -520,6 +521,10 @@ nav .container {
 .navbar-collapse {
 	display: flex;
 	align-content: center;
+	width: 100%;
+}
+.navbar-nav {
+	justify-content: center;
 }
 .navbar-nav li a {
 	color: black !important;
@@ -528,6 +533,12 @@ nav .container {
 	background-color: var(--yellow);
 	margin-bottom: 0;
 	border-bottom: none;
+}
+@media (min-width: 768px) {
+	.navbar-collapse.collapse {
+		display: flex !important;
+		align-items: center;
+	}
 }
 @media (max-width: 767px) {
 	nav .container {

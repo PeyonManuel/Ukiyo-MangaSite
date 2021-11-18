@@ -94,6 +94,9 @@ header.manga-page {
 			padding: 0;
 			color: black;
 		}
+		p {
+			font-size: 1.8rem;
+		}
 	}
 }
 .info-chapters {
@@ -161,4 +164,74 @@ header.manga-page {
 			margin-top: 1rem;
 		}
 	}
-} ;
+}
+.add-to-list-btn {
+	margin: 1rem 0;
+	height: 3rem;
+	width: 100%;
+	border: none;
+	border-radius: 0.5rem;
+	background-color: var(--yellow);
+	color: black;
+	font-size: 1.8rem;
+}
+.add-to-list-sign-container {
+	@extend .absolute-sign;
+	.add-to-list-sign {
+		width: 30vw;
+		min-width: 42rem;
+		height: 16rem;
+		background-color: var(--gray);
+		border-radius: 0.5rem;
+		&__header {
+			.img-div {
+				margin-top: -8rem;
+				margin-right: 1rem;
+				height: 15rem;
+				border-radius: 0.5rem;
+			}
+			border-top-left-radius: 0.5rem;
+			border-top-right-radius: 0.5rem;
+			width: 100%;
+			background-color: var(--yellow);
+			height: 5rem;
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			h3 {
+				color: black;
+				margin: 0;
+			}
+		}
+		position: relative;
+		&__inputs {
+			display: flex;
+			justify-content: space-around;
+			padding: 2rem;
+			display: flex;
+			flex-wrap: wrap;
+			label {
+				display: block;
+			}
+			input {
+				display: block;
+				height: 3rem;
+				width: 16rem;
+				border: none;
+				background-color: rgba(0, 0, 0, 0.137);
+				border-radius: 0.5rem;
+				padding: 1.5rem;
+			}
+			button {
+				position: absolute;
+				top: 1rem;
+				right: 1rem;
+				border: none;
+				background-color: black;
+				color: var(--yellow);
+				padding: 0.5rem 1rem;
+				border-radius: 0.5rem;
+			}
+		}
+	}
+}
