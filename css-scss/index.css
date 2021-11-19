@@ -414,6 +414,11 @@ header.manga-page {
   border-radius: 0.5rem;
 }
 
+.add-to-list-sign-container .add-to-list-sign__inputs button#remove {
+  right: 7rem;
+  color: #eb5e55;
+}
+
 .description-read-more-btn {
   position: absolute;
   bottom: 0;

@@ -124,7 +124,12 @@ const createAddSign = () => {
 							listStorage ? listStorage.progress : ''
 						}' min='0'/>
             </div>
-                <button type="submit">Add</button>
+                <button type="submit" value="add">Add</button>
+				${
+					listStorage
+						? `<button type="submit" id="remove" value="remove">Remove</button>`
+						: ''
+				}
             </form>
         </div>`;
 	const removeAdd = () => {
@@ -141,16 +146,34 @@ const openAddSign = (e) => {
 	document.querySelector('body').style.overflow = 'hidden';
 	const addToListSignContainer = createAddSign();
 	$('body').append(addToListSignContainer);
-	const onSubmit = (e) => {
+
+	const addToLocalStorage = (e) => {
 		const listStorage = {
 			score: e.target[0].value,
 			progress: e.target[1].value,
 		};
-		const addBtn = document.querySelector('.add-to-list-btn');
 		localStorage.setItem(id, JSON.stringify(listStorage));
+		const addBtn = document.querySelector('.add-to-list-btn');
 		document.querySelector('.add-to-list-sign-container').remove();
 		document.body.style.overflowY = 'scroll';
 		addBtn.innerHTML = 'On list';
+	};
+	const removeFromLocalStorage = (e) => {
+		localStorage.removeItem(id);
+		const addBtn = document.querySelector('.add-to-list-btn');
+		document.querySelector('.add-to-list-sign-container').remove();
+		document.body.style.overflowY = 'scroll';
+		addBtn.innerHTML = 'Add to list';
+	};
+
+	const onSubmit = (e) => {
+		if (e.submitter.value === 'add') {
+			addToLocalStorage(e);
+		}
+
+		if (e.submitter.value === 'remove') {
+			removeFromLocalStorage();
+		}
 		e.preventDefault();
 	};
 	document
