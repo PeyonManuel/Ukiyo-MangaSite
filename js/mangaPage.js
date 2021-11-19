@@ -11,6 +11,8 @@ if (!id) {
 	window.location.replace('/pages/notFoundPage.html');
 }
 
+var manga = {};
+
 const addTitle = (manga) => {
 	let title = '';
 
@@ -88,13 +90,17 @@ const createAddSign = () => {
 	const addToListSignContainer = document.createElement('div');
 	addToListSignContainer.classList.add('add-to-list-sign-container');
 	const listStorage = JSON.parse(localStorage.getItem(id));
-	console.log(listStorage);
-	const title = document
-		.querySelector('.manga-page-info__text')
-		.querySelector('h1').innerHTML;
-	const poster = document
-		.querySelector('.manga-page-info__img')
-		.querySelector('img').src;
+
+	let title = '';
+
+	if (manga.title.english !== null) {
+		title = manga.title.english;
+	} else if (manga.title.romaji !== null) {
+		title = manga.title.romaji;
+	} else if (manga.title.native) {
+		title = manga.title.native;
+	}
+	const poster = manga.coverImage.extraLarge;
 	addToListSignContainer.innerHTML = `<div class="add-to-list-sign">
             <div class="add-to-list-sign__header">
                 <div class="img-div">
@@ -241,7 +247,7 @@ fetch('https://graphql.anilist.co/', {
 })
 	.then((res) => res.json())
 	.then((res) => {
-		const manga = res.data.Media;
+		manga = res.data.Media;
 
 		const title = addTitle(manga);
 
