@@ -112,7 +112,6 @@ header.manga-page {
 }
 .info-chapters {
 	display: flex;
-	max-height: 35rem;
 	&__extra-info {
 		width: 22rem;
 		&__item {
@@ -126,6 +125,7 @@ header.manga-page {
 		}
 	}
 	&__chapters {
+		max-height: 35rem;
 		width: calc(100% - 22rem);
 		overflow-y: scroll;
 		margin-left: 2rem;
@@ -155,6 +155,7 @@ header.manga-page {
 			margin-left: 0;
 			width: auto;
 			margin-bottom: 0;
+			max-height: initial;
 		}
 		&__img {
 			margin-top: -30rem;
@@ -200,6 +201,11 @@ header.manga-page {
 				margin-right: 1rem;
 				height: 15rem;
 				border-radius: 0.5rem;
+				img {
+					box-shadow: 0px -1px 40px 10px rgba(136, 95, 95, 0.5);
+					-webkit-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
+					-moz-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
+				}
 			}
 			border-top-left-radius: 0.5rem;
 			border-top-right-radius: 0.5rem;
@@ -209,13 +215,13 @@ header.manga-page {
 			padding: 1rem;
 			display: flex;
 			align-items: center;
-			h3 {
+			h4 {
 				color: black;
 				margin: 0;
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;
-				max-width: 24rem;
+				max-width: 16rem;
 			}
 		}
 		position: relative;

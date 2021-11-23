@@ -237,7 +237,6 @@ header.manga-page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: 35rem;
 }
 
 .info-chapters__extra-info {
@@ -254,6 +253,7 @@ header.manga-page {
 }
 
 .info-chapters__chapters {
+  max-height: 35rem;
   width: calc(100% - 22rem);
   overflow-y: scroll;
   margin-left: 2rem;
@@ -301,6 +301,7 @@ header.manga-page {
     margin-left: 0;
     width: auto;
     margin-bottom: 0;
+    max-height: initial;
   }
   .manga-page-info__img {
     margin-top: -30rem;
@@ -368,13 +369,19 @@ header.manga-page {
   border-radius: 0.5rem;
 }
 
-.add-to-list-sign-container .add-to-list-sign__header h3 {
+.add-to-list-sign-container .add-to-list-sign__header .img-div img {
+  box-shadow: 0px -1px 40px 10px rgba(136, 95, 95, 0.5);
+  -webkit-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px -1px 40px 10px rgba(0, 0, 0, 0.5);
+}
+
+.add-to-list-sign-container .add-to-list-sign__header h4 {
   color: black;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 24rem;
+  max-width: 16rem;
 }
 
 .add-to-list-sign-container .add-to-list-sign__inputs {

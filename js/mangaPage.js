@@ -2,7 +2,7 @@ const chapters = document.querySelector('.info-chapters__chapters');
 const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
-
+// para que no se pueda scrollear en la pantalla de carga
 document.body.style.overflow = 'hidden';
 
 const id = urlParams.get('id');
@@ -12,10 +12,10 @@ if (!id) {
 }
 
 var manga = {};
-
+/* Añade de la pagina HTML */
 const addTitle = (manga) => {
 	let title = '';
-
+	/* Se define el titulo ya que puede venir en varios formatos, priorizando el titulo en ingles */
 	if (manga.title.english !== null) {
 		title = manga.title.english;
 	} else if (manga.title.romaji !== null) {
@@ -29,14 +29,14 @@ const addTitle = (manga) => {
 	document.head.append(HTMLtitle);
 	return title;
 };
-
+/* añade el poster del manga a la pagina */
 const addPoster = (bannerImage) => {
 	const poster = document.createElement('section');
 	poster.classList.add('poster');
 	poster.innerHTML = `<div class="img-div" style="background-image: url(${bannerImage})"></div>`;
 	document.querySelector('main').append(poster);
 };
-
+/* añade la información del manga a la pagina */
 const addMangaInfo = (manga, title) => {
 	const listStorage = JSON.parse(localStorage.getItem(id));
 	const mangaInfo = document.createElement('section');
@@ -69,7 +69,7 @@ const addMangaInfo = (manga, title) => {
 	const description = mangaInfo
 		.querySelector('.manga-page-info__text')
 		.querySelector('p');
-
+	/* condicion para ver si se agrega un boton "read more" si el texto es mas grande que su contenedor */
 	if (
 		description.offsetHeight * window.devicePixelRatio > 160 &&
 		manga.bannerImage
@@ -85,14 +85,14 @@ const addMangaInfo = (manga, title) => {
 		infoText.append(readMoreBtn);
 	}
 };
-
+/* crea y devuelve el boton para añadir un manga a la lista del usuario */
 const createAddSign = () => {
 	const addToListSignContainer = document.createElement('div');
 	addToListSignContainer.classList.add('add-to-list-sign-container');
 	const listStorage = JSON.parse(localStorage.getItem(id));
 
 	let title = '';
-
+	/* Se define el titulo ya que puede venir en varios formatos, priorizando el titulo en ingles */
 	if (manga.title.english !== null) {
 		title = manga.title.english;
 	} else if (manga.title.romaji !== null) {
@@ -109,7 +109,7 @@ const createAddSign = () => {
                         alt="One Piece Poster"
                     />
                 </div>
-                <h3>${title}</h3>
+                <h4>${title}</h4>
             </div>
             <form class="add-to-list-sign__inputs">
             <div>
@@ -132,6 +132,7 @@ const createAddSign = () => {
 				}
             </form>
         </div>`;
+	/* Elimina el boton para añadir a la lista del usuario */
 	const removeAdd = () => {
 		if (document.querySelector('.add-to-list-sign-container')) {
 			document.querySelector('.add-to-list-sign-container').remove();
@@ -141,12 +142,17 @@ const createAddSign = () => {
 	$('body').click(removeAdd);
 	return addToListSignContainer;
 };
+/* añade el boton de añadir a la lista del usuario a la pagina */
 const openAddSign = (e) => {
+	/* si ya existe no lo crea */
+	if (document.querySelector('.add-to-list-sign-container')) return;
+	/* para evitar que el click en el body elimine el cartel */
 	e.stopPropagation();
+	/* para evitar que se scrollee mientras esta el cartel */
 	document.querySelector('body').style.overflow = 'hidden';
 	const addToListSignContainer = createAddSign();
 	$('body').append(addToListSignContainer);
-
+	/* añade los datos del cartel a la memoria */
 	const addToLocalStorage = (e) => {
 		const listStorage = {
 			score: e.target[0].value,
@@ -158,6 +164,7 @@ const openAddSign = (e) => {
 		document.body.style.overflowY = 'scroll';
 		addBtn.innerHTML = 'On list';
 	};
+	/* elimina los datos de la lista del usuario de la memoria */
 	const removeFromLocalStorage = (e) => {
 		localStorage.removeItem(id);
 		const addBtn = document.querySelector('.add-to-list-btn');
@@ -180,9 +187,10 @@ const openAddSign = (e) => {
 		.querySelector('.add-to-list-sign__inputs')
 		.addEventListener('submit', onSubmit);
 	const addToListSign = document.querySelector('.add-to-list-sign');
+	/* para evitar que el click en el body elimine el cartel */
 	addToListSign.addEventListener('click', (e) => e.stopPropagation());
 };
-
+/* añade a la pagina la informacion extra y capitulos del manga */
 const addExtraAndChapters = (manga) => {
 	const months = [
 		'Jan',
@@ -210,6 +218,15 @@ const addExtraAndChapters = (manga) => {
 		<p>${months[manga.startDate.month - 1]} ${manga.startDate.day}, ${
 		manga.startDate.year
 	}</p>
+	${
+		manga.endDate.day
+			? `
+			<h5>End Date</h5>
+			<p>${months[manga.endDate.month - 1]} ${manga.endDate.day}, ${
+					manga.endDate.year
+			  }</p>`
+			: ''
+	}
 	</div>
 	<div class="info-chapters__extra-info__item">
 		${
@@ -225,7 +242,7 @@ const addExtraAndChapters = (manga) => {
 	</div>
 </div>
 <div class="info-chapters__chapters"></div>`;
-
+	/* crea y añade 100 capitulos */
 	for (let i = 1; i < 101; i++) {
 		const anchor = document.createElement('a');
 		anchor.href = '#';
@@ -234,6 +251,14 @@ const addExtraAndChapters = (manga) => {
 	}
 
 	document.querySelector('main').append(extraAndChapters);
+	const chaptersContainer = document.querySelector('.info-chapters__chapters');
+	const extraInfoContainer = document.querySelector(
+		'.info-chapters__extra-info'
+	);
+	/* para que el contenedor de la informacion extra y capitulos tengan la misma altura */
+	if (chaptersContainer && extraInfoContainer) {
+		chaptersContainer.style.maxHeight = extraInfoContainer.clientHeight + 'px';
+	}
 };
 
 fetch('https://graphql.anilist.co/', {
@@ -251,6 +276,11 @@ fetch('https://graphql.anilist.co/', {
 				native
 			  }
 			  startDate {
+				year
+				month
+				day
+			  }
+			  endDate {
 				year
 				month
 				day
